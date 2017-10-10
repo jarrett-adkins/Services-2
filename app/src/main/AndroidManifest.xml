@@ -20,6 +20,13 @@
         <service
             android:name=".services.MusicService"
             android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".RecyclerActivity" />
+
+        <service
+            android:name=".services.RecyclerService"
+            android:enabled="true"
             android:exported="true"></service>
     </application>
 

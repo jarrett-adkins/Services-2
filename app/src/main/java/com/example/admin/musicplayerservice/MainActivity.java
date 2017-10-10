@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.admin.musicplayerservice.services.MusicService;
@@ -82,9 +83,10 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void buttonClicked(View view) {
-        if( isBound ) {
-            Log.d(TAG, "buttonClicked: Playing song");
-            musicSrv.playSong();
+        switch( view.getId() ) {
+            case R.id.btnGoToRecycler:
+                Intent intent = new Intent( this, RecyclerActivity.class );
+                startActivity( intent );
         }
     }
 }
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 /*
 X 1. Create a music player app that will play the music in the foreground service. You can play,
      pause and stop the music from the status bar.
-2. Use a bind service to get data and populate a recyclerView
+X 2. Use a bind service to get data and populate a recyclerView
 3. Use the AlarmManager to send a notification after 10 secs on clicking each list item. The
    notification should have the object that was clicked on.
 
